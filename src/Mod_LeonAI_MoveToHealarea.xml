@@ -1,6 +1,60 @@
 <?xml version="1.0" ?>
 <enemy>
     <behaviour>
-        <root x="110" y="40" />
+        <root x="110" y="40">
+            <normal>
+                <condition id="isInArea">
+                    <string id="condition" values="yesno">yes</string>
+                    <string id="collision groups" values="collison groups" multiselect="true">NAMED_AREAS;;</string>
+                    <string id="check green obstacles only" values="yesno">no</string>
+                    <string id="count characters out of combat" values="yesno">yes</string>
+                    <string id="teams" values="teams" multiselect="true">OWN_TEAM;;</string>
+                    <string id="areaName">HEALAREA</string>
+                    <float id="xOffset">-0.50</float>
+                    <float id="yOffset">0.00</float>
+                    <float id="width">1.00</float>
+                    <float id="height">0.01</float>
+                    <string id="check line of sight" values="yesno">no</string>
+                    <string id="ignore invisibility" values="yesno">no</string>
+                    <string id="Comment">Already at HEALAREA?</string>
+                    <else>
+                        <condition id="isInArea">
+                            <string id="condition" values="yesno">yes</string>
+                            <string id="collision groups" values="collison groups" multiselect="true">NAMED_AREAS;;</string>
+                            <string id="check green obstacles only" values="yesno">no</string>
+                            <string id="count characters out of combat" values="yesno">yes</string>
+                            <string id="teams" values="teams" multiselect="true">OWN_TEAM;;</string>
+                            <string id="areaName">STARTAREA</string>
+                            <float id="xOffset">0.00</float>
+                            <float id="yOffset">0.00</float>
+                            <float id="width">2.00</float>
+                            <float id="height">2.00</float>
+                            <string id="check line of sight" values="yesno">no</string>
+                            <string id="ignore invisibility" values="yesno">no</string>
+                            <string id="Comment">Move towards the enemy base if I am at or near my team&apos;s STARTAREA</string>
+                            <normal>
+                                <condition id="isFromTeam">
+                                    <string id="team" values="teamswithnumbers">ZERO_TEAM</string>
+                                    <string id="check on" values="targetself">self</string>
+                                    <string id="Comment">Red team moves right, blue team moves left</string>
+                                    <normal>
+                                        <action id="pressStick">
+                                            <string id="direction" values="directions">RIGHT</string>
+                                            <float id="duration in seconds">0.10</float>
+                                        </action>
+                                    </normal>
+                                    <else>
+                                        <action id="pressStick">
+                                            <string id="direction" values="directions">LEFT</string>
+                                            <float id="duration in seconds">0.10</float>
+                                        </action>
+                                    </else>
+                                </condition>
+                            </normal>
+                        </condition>
+                    </else>
+                </condition>
+            </normal>
+        </root>
     </behaviour>
 </enemy>
