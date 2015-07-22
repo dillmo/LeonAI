@@ -23,11 +23,29 @@
                         </action>
                     </normal>
                 </condition>
-                <action id="executeBehaviourTree">
-                    <string id="fileName">Mod_Grid</string>
+                <condition id="getBoolEquals">
+                    <string id="id">false</string>
+                    <string id="value" values="yesno">no</string>
                     <string id="Comment">Index a 2x2 area around me as a grid</string>
-                    <string id="Minimized">yes</string>
-                </action>
+                    <normal>
+                        <action id="executeBehaviourTree">
+                            <string id="fileName">Mod_Grid_CREEPS_UNFRIENDLY</string>
+                            <string id="Minimized">yes</string>
+                        </action>
+                        <action id="executeBehaviourTree">
+                            <string id="fileName">Mod_Grid_INVINCIBLE_OBSTACLES_ALL</string>
+                            <string id="Minimized">yes</string>
+                        </action>
+                        <action id="executeBehaviourTree">
+                            <string id="fileName">Mod_Grid_PLAYERS_UNFRIENDLY</string>
+                            <string id="Minimized">yes</string>
+                        </action>
+                        <action id="executeBehaviourTree">
+                            <string id="fileName">Mod_Grid_PROJECTILES_UNFRIENDLY</string>
+                            <string id="Minimized">yes</string>
+                        </action>
+                    </normal>
+                </condition>
                 <condition id="checkCounter">
                     <string id="id">setState</string>
                     <string id="value">0</string>
